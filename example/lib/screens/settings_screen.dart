@@ -39,7 +39,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           SettingsSection(
             title: 'Account',
             tiles: [
-              SettingsTile(title: 'Phone number', leading: Icon(Icons.phone)),
+              SettingsTile(title: 'Phone number', details: false, leading: Icon(Icons.phone), trailing: Icon(Icons.check),),
               SettingsTile(title: 'Email', leading: Icon(Icons.email)),
               SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app)),
             ],
