@@ -9,6 +9,7 @@ enum _SettingsTileType { simple, switchTile }
 class SettingsTile extends StatelessWidget {
   final String title;
   final String subtitle;
+  final bool details;
   final Widget leading;
   final VoidCallback onTap;
   final Function(bool value) onToggle;
@@ -19,6 +20,7 @@ class SettingsTile extends StatelessWidget {
     Key key,
     @required this.title,
     this.subtitle,
+    this.details = true,
     this.leading,
     this.onTap,
   })  : _tileType = _SettingsTileType.simple,
@@ -34,6 +36,7 @@ class SettingsTile extends StatelessWidget {
     @required this.onToggle,
     @required this.switchValue,
   })  : _tileType = _SettingsTileType.switchTile,
+        details = false,
         onTap = null,
         super(key: key);
 
@@ -60,7 +63,7 @@ class SettingsTile extends StatelessWidget {
         type: SettingsItemType.modal,
         label: title,
         value: subtitle,
-        hasDetails: true,
+        hasDetails: details,
         leading: leading,
         onPress: onTap,
       );

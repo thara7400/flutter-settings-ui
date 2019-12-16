@@ -32,6 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SettingsTile(
                   title: 'Environment',
                   subtitle: 'Production',
+                  details: false,
                   leading: Icon(Icons.cloud_queue)),
             ],
           ),
