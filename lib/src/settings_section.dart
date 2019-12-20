@@ -8,6 +8,7 @@ import 'package:settings_ui/src/settings_tile.dart';
 // ignore: must_be_immutable
 class SettingsSection extends StatelessWidget {
   final String title;
+  final String addition;
   final List<SettingsTile> tiles;
   bool showBottomDivider = false;
 
@@ -15,6 +16,7 @@ class SettingsSection extends StatelessWidget {
     Key key,
     this.tiles,
     this.title,
+    this.addition,
   }) : super(key: key);
 
   @override
@@ -28,11 +30,15 @@ class SettingsSection extends StatelessWidget {
   }
 
   Widget iosSection() {
-    return CupertinoSettingsSection(tiles,
-        header: title == null ? null : Text(title));
+    return CupertinoSettingsSection(
+      tiles,
+      header: title == null ? null : Text(title),
+      footer: addition == null ? null : Text(addition),
+    );
   }
 
   Widget androidSection(BuildContext context) {
+    if (addition != null) showBottomDivider = true;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       title == null
           ? Container()
@@ -55,7 +61,13 @@ class SettingsSection extends StatelessWidget {
           return tiles[index];
         },
       ),
-      if (showBottomDivider) Divider(height: 1)
+      if (showBottomDivider) Divider(height: 1),
+      addition == null
+          ? Container()
+          : Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text(addition),
+      ),
     ]);
   }
 }

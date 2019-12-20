@@ -19,6 +19,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         sections: [
           SettingsSection(
             title: 'Common',
+            addition: 'This section additional text.',
             tiles: [
               SettingsTile(
                 title: 'Language',
