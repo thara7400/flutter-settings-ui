@@ -42,14 +42,23 @@ class SettingsSection extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       title == null
           ? Container()
-          : Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                title,
-                style: TextStyle(
-                    color: Theme.of(context).accentColor,
-                    fontWeight: FontWeight.bold),
-              ),
+          : Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        color: Theme.of(context).accentColor,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Expanded(
+                  child: Divider(
+                      color: Theme.of(context).accentColor,
+                  ),
+                ),
+              ],
             ),
       ListView.separated(
         physics: NeverScrollableScrollPhysics(),
